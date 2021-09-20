@@ -13,6 +13,8 @@ import {
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+/**Elementos importados del Menu */
+import HomeScreen from '../screens/Home/HomeScreen';
 
 
 function Feed() {
@@ -36,6 +38,7 @@ function Feed() {
   function MyDrawer() {
     return (
       <Drawer.Navigator>
+        <Drawer.Screen name="Home" component={HomeScreen} />
         <Drawer.Screen name="Feed" component={Feed} />
         <Drawer.Screen name="Article" component={Article} />
       </Drawer.Navigator>
