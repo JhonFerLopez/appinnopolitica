@@ -5,7 +5,7 @@
  * @format
  * @flow strict-local
  */
-
+ import 'react-native-gesture-handler';
 import React, {Component} from 'react';
 import {
   SafeAreaView,
@@ -28,6 +28,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import ButtonCustom from './components/button';
+import AppContainer from './src/navigations/AppNavigation';
 
 class App extends Component {
   constructor(props) {
@@ -54,7 +55,8 @@ class App extends Component {
     const { counter } = this.state;
     
     return (
-      <View style={styles.container}>
+      <AppContainer />
+      /*<View style={styles.container}>
         <View style={styles.subcontainer}>
           
           <ButtonCustom action={this.handleDown} label="-"/>
@@ -65,7 +67,7 @@ class App extends Component {
          
           <ButtonCustom action={this.handleUp} label="+"/>          
         </View>  
-      </View>
+      </View>*/
     );  
   }
 };
