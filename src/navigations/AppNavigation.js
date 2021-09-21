@@ -13,42 +13,37 @@ import {
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createStackNavigator }  from '@react-navigation/stack'
 /**Elementos importados del Menu */
 import HomeScreen from '../screens/Home/HomeScreen';
+import CoursesScreen from '../screens/Course/CoursesScreen';
+import NewsScreen from '../screens/New/NewsScreen';
+import EventsScreen from '../screens/Event/EventsScreen';
 
 
-function Feed() {
+function PerfilScreen() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Feed Screen</Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text style={{fontSize:20}}>Perfil Screen</Text>
       </View>
     );
-  }
-  
-  function Article() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Article Screen</Text>
-      </View>
-    );
-  }
-  
-  const Drawer = createDrawerNavigator();
-  
-  function MyDrawer() {
-    return (
-      <Drawer.Navigator>
-        <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Feed" component={Feed} />
-        <Drawer.Screen name="Article" component={Article} />
-      </Drawer.Navigator>
-    );
-  }
-  
-  export default function App() {
-    return (
-      <NavigationContainer>
-        <MyDrawer />
-      </NavigationContainer>
-    );
-  }
+}
+
+const Drawer = createDrawerNavigator();
+
+function OnboardingStack() {
+  return (
+    <NavigationContainer>
+        <Drawer.Navigator>
+            <Drawer.Screen name="Home" component={HomeScreen} />
+            <Drawer.Screen name="Cursos" component={CoursesScreen} />
+            <Drawer.Screen name="Noticias" component={NewsScreen} />
+            <Drawer.Screen name="Eventos" component={EventsScreen} />
+        </Drawer.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default OnboardingStack;
+
+

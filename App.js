@@ -5,7 +5,7 @@
  * @format
  * @flow strict-local
  */
- import 'react-native-gesture-handler';
+import 'react-native-gesture-handler';
 import React, {Component} from 'react';
 import {
   SafeAreaView,
@@ -30,72 +30,10 @@ import {
 import ButtonCustom from './components/button';
 import AppContainer from './src/navigations/AppNavigation';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+export default function App() {
+  return (      
+    <AppContainer />
+  );
+}
 
-    this.state = {
-      counter : 0,
-    };
-
-    this.handleUp = this.handleUp.bind(this);
-    this.handleDown = this.handleDown.bind(this);
-  }
-
-  handleUp() {
-    const { counter:ct } = this.state;
-    this.setState({ counter:ct + 1});
-  }
-  handleDown() {
-    const { counter:ct } = this.state;
-    this.setState({ counter:ct - 1});
-  }
-
-  render() {
-    const { counter } = this.state;
-    
-    return (
-      <AppContainer />
-      /*<View style={styles.container}>
-        <View style={styles.subcontainer}>
-          
-          <ButtonCustom action={this.handleDown} label="-"/>
-
-          <View style={styles.counterContainer}>
-            <Text style={styles.counterTxt}>{counter}</Text>
-          </View>
-         
-          <ButtonCustom action={this.handleUp} label="+"/>          
-        </View>  
-      </View>*/
-    );  
-  }
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#2c3e50',
-    justifyContent: 'center',
-  },
-  subcontainer: {
-    width: '100%',
-    height: 50,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 10,
-  },
-  counterContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  counterTxt: {
-    fontSize: 35,
-    fontWeight: 'bold',
-    color: '#FFF',
-  },
-});
-
-export default App;
+console.disableYellowBox = true;
