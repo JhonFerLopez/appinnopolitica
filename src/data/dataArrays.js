@@ -1,3 +1,43 @@
+export const homeContent = [
+  {
+    id: 1,
+    name: 'Cursos',
+    photo_url:
+      'https://dotasec.com/menu/banner2_innopolitica1.png',
+    icon_url:
+      'https://dotasec.com/menu/Vector.png'
+  },
+  {
+    id: 2,
+    name: 'Noticias',
+    photo_url:
+    'https://dotasec.com/menu/banner3_innopolitica1.png',
+    icon_url:
+      'https://dotasec.com/menu/Vector2.png'
+  },
+  {
+    id: 3,
+    name: 'Eventos',
+    photo_url: 'https://dotasec.com/menu/banner1b_innopolitica1.png',
+    icon_url:
+      'https://dotasec.com/menu/Vector3.png'
+  },
+];
+export const homeSubContent = [
+  {
+    id: 1,
+    name: 'Contáctenos',
+    icon_url:
+      'https://dotasec.com/menu/Icon.png'
+  },
+  {
+    id: 2,
+    name: 'Clases\nen vivo',
+    icon_url:
+      'https://dotasec.com/menu/Icon1.png'
+  }
+];
+
 export const categories = [
   {
     id: 3,

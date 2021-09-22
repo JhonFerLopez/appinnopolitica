@@ -1,43 +1,100 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+// screen sizing
+const { width, height } = Dimensions.get('window');
+// orientation must fixed
+const SCREEN_WIDTH = width < height ? width : height;
+
+const recipeNumColums = 2;
+// item size
+const RECIPE_ITEM_HEIGHT = 150;
+const RECIPE_ITEM_MARGIN = 20;
 
 const styles = StyleSheet.create({
-  categoriesItemContainer: {
+  contentItemContainer: {
     flex: 1,
     margin: 10,
+    marginLeft: 20,
+    marginRight: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 215,
+    height: 130,
     borderColor: '#cccccc',
-    borderWidth: 0.5,
-    borderRadius: 20,
+    borderWidth: 0.2,
+    borderRadius: 30,
   },
-  categoriesPhoto: {
+  contentPhoto: {
+    zIndex: 1,
+    elevation: 1,
     width: '100%',
-    height: 155,
-    borderRadius: 20,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
+    height: '100%',
+    borderRadius: 30,
     shadowColor: 'blue',
     shadowOffset: {
       width: 0,
-      height: 3
+      height: 1
     },
     shadowRadius: 5,
     shadowOpacity: 1.0,
     elevation: 3
   },
-  categoriesName: {
+  contentName: {
+    position: 'absolute',
+    zIndex: 3,
+    elevation: 3,
     flex: 1,
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#333333',
-    marginTop: 8
+    color: '#FFFFFF',
+    left : 33,
+    bottom: 20
   },
-  categoriesInfo: {
-    marginTop: 3,
-    marginBottom: 5
-  }
+  contentIcon: {
+    position: 'absolute',
+    zIndex: 3,
+    elevation: 3,
+    flex: 1,
+    width: 36,
+    height: 40,
+    left : 33,
+    bottom: 60
+  },
+  //Style SubContent
+  subContentItemContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: RECIPE_ITEM_MARGIN,
+    marginTop: 10,
+    width: (SCREEN_WIDTH - (recipeNumColums + 1) * RECIPE_ITEM_MARGIN) / recipeNumColums,
+    height: RECIPE_ITEM_HEIGHT + 25,
+    borderColor: '#19265D',
+    borderWidth: 3.5,
+    borderRadius: 30,   
+  },
+  ContainerSubPhoto: {
+    width: '100%',
+  },
+  subPhoto: {
+    width: 55,
+    height: 55,
+    shadowOpacity: 1.0,
+    left : 15,
+    top: 27
+  },
+  subTitle: {
+    width: '100%',
+    flex: 1,
+    fontSize: 22,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    color: '#19265D',
+    marginTop: 40,
+    marginRight: 5,
+    marginLeft: 5,
+    paddingLeft: 15,
+  },
 });
 
 export default styles;
