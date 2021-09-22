@@ -14,7 +14,9 @@ import {
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createStackNavigator }  from '@react-navigation/stack'
+import { createStackNavigator }  from '@react-navigation/stack';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
 /**Elementos importados del Menu */
 import DrawerContainer from '../screens/DrawerContainer/DrawerContainer';
 import HomeScreen from '../screens/Home/HomeScreen';
@@ -24,6 +26,7 @@ import EventsScreen from '../screens/Event/EventsScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
+const Tabs = createBottomTabNavigator();
 
 function MainNavigator() {
   return(
@@ -51,16 +54,28 @@ function DrawerStack() {
   return(
     <Drawer.Navigator
       drawerPosition='center'
-      initialRouteName='Main'
+      initialRouteName='app'
       drawerStyle={{
         width: 250,
         backgroundColor: 'yellow',
       }}
       drawerContent={props=> DrawerContainer}
     >
-      <Drawer.Screen name='app' component={MainNavigator} options={{headerShown: false, hidden: true}}/>
+      <Drawer.Screen name="Home" component={MyTabs}  options={{headerShown: false, hidden: true}}/>
+      <Drawer.Screen name='app' component={MainNavigator} options={{headerShown: false, hidden: true}}/>      
     </Drawer.Navigator>
   )
+}
+
+function MyTabs() {
+  return (
+    <Tabs.Navigator>
+      <Tabs.Screen name="Inicio" component={HomeScreen} />
+      <Tabs.Screen name="Cursos" component={CoursesListScreen} />
+      <Tabs.Screen name="Clases en Vivo" component={NewsScreen} />
+      <Tabs.Screen name="Videos" component={EventsScreen} />
+    </Tabs.Navigator>
+  );
 }
 
 
