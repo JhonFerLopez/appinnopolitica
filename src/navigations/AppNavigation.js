@@ -58,7 +58,7 @@ function DrawerStack() {
       }}
       drawerContent={props=> DrawerContainer}
     >
-      <Drawer.Screen name='Main' component={MainNavigator} />
+      <Drawer.Screen name='app' component={MainNavigator} options={{headerShown: false, hidden: true}}/>
     </Drawer.Navigator>
   )
 }

@@ -14,9 +14,14 @@ import { homeContent, homeSubContent, recipes } from '../../data/dataArrays';
 import { getNumberOfRecipes, getCategoryName } from '../../data/MockDataAPI';
 
 export default class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Home'
-  };
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Home',
+    headerLeft: () => <MenuImage
+      onPress={() => {
+        navigation.openDrawer();
+      }}
+    />
+  });
   
   constructor(props) {
     super(props);
