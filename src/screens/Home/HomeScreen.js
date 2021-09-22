@@ -5,7 +5,9 @@ import {
   View,
   Image,
   TouchableHighlight,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView,
+  Linking
 } from 'react-native';
 import styles from './styles';
 import { homeContent, homeSubContent, recipes } from '../../data/dataArrays';
@@ -15,29 +17,29 @@ export default class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Home'
   };
-
+  
   constructor(props) {
     super(props);
+    const { navigation } = this.props;
   }
 
   onPressContent = item => {
-    const title = item.name;
-    const category = item;
-    this.props.navigation.navigate('RecipesList', { category, title });
+    this.props.navigation.navigate('CoursesList', { item });
   };
 
   onPressRecipe = item => {
-    this.props.navigation.navigate('Recipe', { item });
+    Linking.openURL('https://ziel.com.co/');
+//    this.props.navigation.navigate('Recipe', { item });
   };
 
   renderContent = ({ item }) => (
-    <TouchableOpacity onPress={() => this.onPressContent(item)}>
+    <TouchableHighlight onPress={() => this.onPressContent(item)}>
       <View style={styles.contentItemContainer}>
         <Text style={styles.contentName}>{item.name}</Text>
         <Image style={styles.contentIcon} source={{ uri: item.icon_url }} />
         <Image style={styles.contentPhoto} source={{ uri: item.photo_url }} />
       </View>
-    </TouchableOpacity>
+    </TouchableHighlight>
   );
   renderSubContent = ({ item }) => (
     <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' onPress={() => this.onPressRecipe(item)}>
@@ -52,21 +54,23 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View>
-        <FlatList
-          data={homeContent}
-          renderItem={this.renderContent}
-          keyExtractor={item => `${item.id}`}
-        />
-        <FlatList
-          vertical
-          showsVerticalScrollIndicator={false}
-          numColumns={2}
-          data={homeSubContent}
-          renderItem={this.renderSubContent}
-          keyExtractor={item => `${item.recipeId}`}
-        />
-      </View>
+      <ScrollView>
+        <View>
+          <FlatList
+            data={homeContent}
+            renderItem={this.renderContent}
+            keyExtractor={item => `${item.id}`}
+          />
+          <FlatList
+            vertical
+            showsVerticalScrollIndicator={false}
+            numColumns={2}
+            data={homeSubContent}
+            renderItem={this.renderSubContent}
+            keyExtractor={item => `${item.recipeId}`}
+          />
+        </View>
+      </ScrollView>
     );
   }
 }
