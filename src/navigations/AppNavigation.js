@@ -11,6 +11,7 @@ import {
   useColorScheme,
   View,
   Image,
+  Linking,
   StackNavigator
 } from 'react-native';
 import styles from './styles';
@@ -29,58 +30,47 @@ import EventsScreen from '../screens/Event/EventsScreen';
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
+const navOptionHandler = () => ({
+  headerShown: false
+})
 
-function MainNavigator() {
-  return(
-    <Stack.Navigator
-      screenOptions={{
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            textAlign: 'center',
-            alignSelf: 'center',
-            flex: 1,
-            backgroundColor: 'red',
-          }
-      }}
-    >
-      <Stack.Screen name='Home' component={HomeScreen} />
-      <Stack.Screen name='Cursos' component={CoursesListScreen}/>
-      <Stack.Screen name='Clases en Vivo' component={NewsScreen}/>
-      <Stack.Screen name='Videos' component={EventsScreen} />
-    </Stack.Navigator>
-  )
-}
+/** */
+const MainNavigator = () => ( 
+  <Stack.Navigator initialRouteName='Home'>
+    <Stack.Screen name='Home' component={HomeScreen} options={ navOptionHandler }/>
+    <Stack.Screen name='Curso Lista' component={CoursesListScreen} options={ navOptionHandler }/>
+    <Stack.Screen name='Noticia Lista' component={NewsScreen} options={ navOptionHandler }/>
+    <Stack.Screen name='Envento List' component={EventsScreen} options={ navOptionHandler }/>
+  </Stack.Navigator>
+);
 
+CoursesWeb = item => {
+  Linking.openURL('https://ziel.com.co/');
+};
+LiveClassesWeb = item => {
+  Linking.openURL('https://ziel.com.co/');
+};
+VideoWeb = item => {
+  Linking.openURL('https://ziel.com.co/');
+};
 
-function DrawerStack() {
-  return(
-    <Drawer.Navigator
-      drawerPosition='center'
-      initialRouteName='Home'
-      drawerStyle={{
-        width: 250,
-        backgroundColor: 'yellow',
-      }}
-      drawerContent={props=> DrawerContainer}
-    >
-      <Drawer.Screen name="Tab" component={MyTabs}  options={{headerShown: false, hidden: true}}/>
-      <Drawer.Screen name='Home' component={MainNavigator} options={{headerShown: false, hidden: true}}/>      
-    </Drawer.Navigator>
-  )
-}
+const MyTabs = () => (
+  <Tab.Navigator >
+    <Tab.Screen name="Home" component={MainNavigator} />
+    <Tab.Screen name="Cursos" component={CoursesWeb} />
+    <Tab.Screen name="Clases en Vivo" component={LiveClassesWeb} />
+    <Tab.Screen name="Videos" component={VideoWeb} />
+  </Tab.Navigator>
+);
 
-function MyTabs() {
-  return (
-    <Tab.Navigator
-      >
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Cursos" component={CoursesListScreen} />
-      <Tab.Screen name="Clases en Vivo" component={NewsScreen} />
-      <Tab.Screen name="Videos" component={EventsScreen} />
-    </Tab.Navigator>
-  );
-}
-
+const DrawerStack = () => (
+  <Drawer.Navigator
+    initialRouteName='Home'
+    drawerContent={ props => DrawerContainer }
+  >
+    <Drawer.Screen name='Home' component={ MyTabs } options={ navOptionHandler } />    
+  </Drawer.Navigator>
+);
 
 export default function AppContainer() {
   return(
