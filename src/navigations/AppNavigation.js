@@ -10,8 +10,10 @@ import {
   TouchableOpacityComponent,
   useColorScheme,
   View,
+  Image,
   StackNavigator
 } from 'react-native';
+import styles from './styles';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator }  from '@react-navigation/stack';
@@ -26,7 +28,7 @@ import EventsScreen from '../screens/Event/EventsScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
-const Tabs = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 function MainNavigator() {
   return(
@@ -42,9 +44,9 @@ function MainNavigator() {
       }}
     >
       <Stack.Screen name='Home' component={HomeScreen} />
-      <Stack.Screen name='CoursesList' component={CoursesListScreen}/>
-      <Stack.Screen name='News' component={NewsScreen}/>
-      <Stack.Screen name='Events' component={EventsScreen} />
+      <Stack.Screen name='Cursos' component={CoursesListScreen}/>
+      <Stack.Screen name='Clases en Vivo' component={NewsScreen}/>
+      <Stack.Screen name='Videos' component={EventsScreen} />
     </Stack.Navigator>
   )
 }
@@ -54,27 +56,28 @@ function DrawerStack() {
   return(
     <Drawer.Navigator
       drawerPosition='center'
-      initialRouteName='app'
+      initialRouteName='Home'
       drawerStyle={{
         width: 250,
         backgroundColor: 'yellow',
       }}
       drawerContent={props=> DrawerContainer}
     >
-      <Drawer.Screen name="Home" component={MyTabs}  options={{headerShown: false, hidden: true}}/>
-      <Drawer.Screen name='app' component={MainNavigator} options={{headerShown: false, hidden: true}}/>      
+      <Drawer.Screen name="Tab" component={MyTabs}  options={{headerShown: false, hidden: true}}/>
+      <Drawer.Screen name='Home' component={MainNavigator} options={{headerShown: false, hidden: true}}/>      
     </Drawer.Navigator>
   )
 }
 
 function MyTabs() {
   return (
-    <Tabs.Navigator>
-      <Tabs.Screen name="Inicio" component={HomeScreen} />
-      <Tabs.Screen name="Cursos" component={CoursesListScreen} />
-      <Tabs.Screen name="Clases en Vivo" component={NewsScreen} />
-      <Tabs.Screen name="Videos" component={EventsScreen} />
-    </Tabs.Navigator>
+    <Tab.Navigator
+      >
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Cursos" component={CoursesListScreen} />
+      <Tab.Screen name="Clases en Vivo" component={NewsScreen} />
+      <Tab.Screen name="Videos" component={EventsScreen} />
+    </Tab.Navigator>
   );
 }
 
