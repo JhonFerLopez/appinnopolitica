@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     borderColor: '#cccccc',
     borderWidth: 0.2,
     borderRadius: 30,
+    
   },
   contentPhoto: {
     zIndex: 1,

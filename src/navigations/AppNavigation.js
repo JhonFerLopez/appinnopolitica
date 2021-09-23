@@ -19,6 +19,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator }  from '@react-navigation/stack';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 /**Elementos importados del Menu */
 import DrawerContainer from '../screens/DrawerContainer/DrawerContainer';
@@ -44,18 +45,42 @@ const MainNavigator = () => (
   </Stack.Navigator>
 );
 
-CoursesWeb = item => {
+CoursesWeb = () => {
   Linking.openURL('https://ziel.com.co/');
 };
-LiveClassesWeb = item => {
+LiveClassesWeb = () => {
   Linking.openURL('https://ziel.com.co/');
 };
-VideoWeb = item => {
+VideoWeb = () => {
   Linking.openURL('https://ziel.com.co/');
 };
 
 const MyTabs = () => (
-  <Tab.Navigator >
+  <Tab.Navigator 
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+          if (route.name === 'Home') {
+            iconName = focused
+              ? require('./../../assets/icons/iconInicioTopActive.png')
+              : require('./../../assets/icons/iconInicioTop.png');
+          } else if (route.name === 'Cursos') {
+            iconName = require('./../../assets/icons/iconCursosTop.png');
+          } else if (route.name === 'Clases en Vivo') {
+            iconName = require('./../../assets/icons/iconClasesTop.png');
+          } else if (route.name === 'Videos') {
+            iconName = require('./../../assets/icons/iconVideoTop.png');
+          }
+          // You can return any component that you like here!
+          return <Image source={iconName} style={{ height : 30, width: 30}} 
+          resizeMode="contain"/>
+        },
+      })}
+      tabBarOptions={{ 
+        activeTintColor: '#FFDF73',
+        inactiveTintColor: '#19265D'
+      }}
+    >
     <Tab.Screen name="Home" component={MainNavigator} />
     <Tab.Screen name="Cursos" component={CoursesWeb} />
     <Tab.Screen name="Clases en Vivo" component={LiveClassesWeb} />

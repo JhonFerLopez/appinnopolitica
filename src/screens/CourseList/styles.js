@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { ImageBackground, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   categoriesItemContainer: {
