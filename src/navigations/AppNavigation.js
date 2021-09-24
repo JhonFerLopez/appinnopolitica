@@ -55,8 +55,73 @@ VideoWeb = () => {
   Linking.openURL('https://ziel.com.co/');
 };
 
+function MyTabBar({ state, descriptors, navigation }) {
+  return (
+    <View style={ styles.tabView }>
+      {state.routes.map((route, index) => {
+        const { options } = descriptors[route.key];
+        const label =
+          options.tabBarLabel !== undefined
+            ? options.tabBarLabel
+            : options.title !== undefined
+            ? options.title
+            : route.name;
+
+        const isFocused = state.index === index;
+
+        const onPress = () => {
+          const event = navigation.emit({
+            type: 'tabPress',
+            target: route.key,
+          });
+
+          if (!isFocused && !event.defaultPrevented) {
+            navigation.navigate(route.name);
+          }
+        };
+
+        const onLongPress = () => {
+          navigation.emit({
+            type: 'tabLongPress',
+            target: route.key,
+          });
+        };
+        let iconName ='';
+        if (route.name === 'Home') {
+          iconName = isFocused
+            ? require('./../../assets/icons/iconInicioTopActive.png')
+            : require('./../../assets/icons/iconInicioTop.png');
+        } else if (route.name === 'Cursos') {
+          iconName = require('./../../assets/icons/iconCursosTop.png');
+        } else if (route.name === 'Clases en Vivo') {
+          iconName = require('./../../assets/icons/iconClasesTop.png');
+        } else if (route.name === 'Videos') {
+          iconName = require('./../../assets/icons/iconVideoTop.png');
+        }
+        return (
+          <TouchableOpacity
+            accessibilityRole="button"
+            accessibilityState={isFocused ? { selected: true } : {}}
+            accessibilityLabel={options.tabBarAccessibilityLabel}
+            testID={options.tabBarTestID}
+            onPress={onPress}
+            onLongPress={onLongPress}
+            style={ styles.tabTouch }
+          >
+            <Image source={iconName} style={ styles.tabImage } 
+              resizeMode="contain"/>
+            <Text style={{ fontSize: 100, color: isFocused ? '#673ab7' : '#222' }+styles.tabText}>
+              {label}
+            </Text>
+          </TouchableOpacity>
+        );
+      })}
+    </View>
+  );
+}
+
 const MyTabs = () => (
-  <Tab.Navigator 
+  <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />} /*
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
@@ -72,19 +137,22 @@ const MyTabs = () => (
             iconName = require('./../../assets/icons/iconVideoTop.png');
           }
           // You can return any component that you like here!
-          return <Image source={iconName} style={{ height : 30, width: 30}} 
-          resizeMode="contain"/>
+          return (<View>
+            <Image source={iconName} style={{ height : 30, width: 30}} 
+              resizeMode="contain"/>
+          </View>
+           );
         },
       })}
       tabBarOptions={{ 
         activeTintColor: '#FFDF73',
         inactiveTintColor: '#19265D'
-      }}
+      }} */
     >
-    <Tab.Screen name="Home" component={MainNavigator} />
-    <Tab.Screen name="Cursos" component={CoursesWeb} />
-    <Tab.Screen name="Clases en Vivo" component={LiveClassesWeb} />
-    <Tab.Screen name="Videos" component={VideoWeb} />
+    <Tab.Screen name="Home" component={MainNavigator} style={styles.tabText}/>
+    <Tab.Screen name="Cursos" component={CoursesWeb} style={styles.tabText}/>
+    <Tab.Screen name="Clases en Vivo" component={LiveClassesWeb} style={styles.tabText}/>
+    <Tab.Screen name="Videos" component={VideoWeb} style={styles.tabText} />
   </Tab.Navigator>
 );
 
@@ -93,7 +161,7 @@ const DrawerStack = () => (
     initialRouteName='Home'
     drawerContent={ props => DrawerContainer }
   >
-    <Drawer.Screen name='Home' component={ MyTabs } options={ navOptionHandler } />    
+    <Drawer.Screen name='Home' component={ MyTabs } options={ navOptionHandler } /> 
   </Drawer.Navigator>
 );
 
