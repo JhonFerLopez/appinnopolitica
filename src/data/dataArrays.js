@@ -38,6 +38,32 @@ export const homeSubContent = [
   }
 ];
 
+export const coursesContent = [
+  {
+    id: 1,
+    name: 'Liderazgo y formación democrática: Sé el lider del siglo XXI',
+    photo_url: 'https://dotasec.com/menu/imgcurso2.png',
+    fecha_inicio:
+      '20210925'
+  },
+  {
+    id: 2,
+    name: 'Herramientas para la participación Democrática',
+    photo_url:  'https://dotasec.com/menu/imgcurso1.png',
+    fecha_inicio:
+      '20210926'
+  },
+  {
+    id: 3,
+    name: 'Liderazgo y formación democrática: Sé el lider del siglo XXI',
+    photo_url: 'https://dotasec.com/menu/imgcurso2.png',
+    fecha_inicio:
+      '20210928'
+  },
+];
+
+
+
 export const categories = [
   {
     id: 3,

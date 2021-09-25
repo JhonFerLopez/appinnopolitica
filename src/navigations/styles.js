@@ -5,7 +5,8 @@ const styles = StyleSheet.create({
   tabView : {
     height: 70,
     flexDirection: 'row', 
-    width:'100%'
+    width:'100%',
+    backgroundColor: '#FFF',
   },
   tabTouch: {
     flex: 1,

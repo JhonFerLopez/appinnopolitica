@@ -7,7 +7,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 import styles from './styles';
-import { categories } from '../../data/dataArrays';
+import { coursesContent } from '../../data/dataArrays';
 import { getNumberOfRecipes } from '../../data/MockDataAPI';
 
 export default class CoursesListScreen extends React.Component {
@@ -19,18 +19,18 @@ export default class CoursesListScreen extends React.Component {
     super(props);
   }
 
-  onPressCategory = item => {
+  onPressCourses = item => {
     const title = item.name;
-    const category = item;
-    this.props.navigation.navigate('Recipes', { category, title });
+    const course = item;
+    this.props.navigation.navigate('Curso', { course, title });
   };
 
-  renderCategory = ({ item }) => (
-    <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' onPress={() => this.onPressCategory(item)}>
-      <View style={styles.categoriesItemContainer}>
-        <Image style={styles.categoriesPhoto} source={{ uri: item.photo_url }} />
-        <Text style={styles.categoriesName}>{item.name}</Text>
-        <Text style={styles.categoriesInfo}>{getNumberOfRecipes(item.id)} recipes</Text>
+  renderCoursesList = ({ item }) => (
+    <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' onPress={() => this.onPressCourses(item)}>
+      <View style={styles.courseslistItemContainer}>
+        <Image style={styles.courseslistPhoto} source={{ uri: item.photo_url }} />
+        <Text style={styles.courseslistName}>{item.name}</Text>
+        <Text style={styles.courseslistFecha}>Fecha: {item.fecha_inicio}</Text>
       </View>
     </TouchableHighlight>
   );
@@ -39,8 +39,8 @@ export default class CoursesListScreen extends React.Component {
     return (
       <View>
         <FlatList
-          data={categories}
-          renderItem={this.renderCategory}
+          data={coursesContent}
+          renderItem={this.renderCoursesList}
           keyExtractor={item => `${item.id}`}
         />
       </View>

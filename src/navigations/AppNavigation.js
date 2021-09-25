@@ -25,6 +25,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import DrawerContainer from '../screens/DrawerContainer/DrawerContainer';
 import HomeScreen from '../screens/Home/HomeScreen';
 import CoursesListScreen from '../screens/CourseList/CoursesListScreen';
+import Course from '../screens/Course/CoursesScreen';
 import NewsScreen from '../screens/New/NewsScreen';
 import EventsScreen from '../screens/Event/EventsScreen';
 
@@ -37,9 +38,13 @@ const navOptionHandler = () => ({
 
 /** */
 const MainNavigator = () => ( 
-  <Stack.Navigator initialRouteName='Home'>
+  <Stack.Navigator initialRouteName='Home' screenOptions={{
+    headerStyle: { elevation: 0 },
+    cardStyle: { backgroundColor: '#fff' }
+}}>
     <Stack.Screen name='Home' component={HomeScreen} options={ navOptionHandler }/>
     <Stack.Screen name='Curso Lista' component={CoursesListScreen} options={ navOptionHandler }/>
+    <Stack.Screen name='Curso' component={Course} options={ navOptionHandler }/>
     <Stack.Screen name='Noticia Lista' component={NewsScreen} options={ navOptionHandler }/>
     <Stack.Screen name='Envento List' component={EventsScreen} options={ navOptionHandler }/>
   </Stack.Navigator>
@@ -57,7 +62,7 @@ VideoWeb = () => {
 
 function MyTabBar({ state, descriptors, navigation }) {
   return (
-    <View style={ styles.tabView }>
+    <View style={ styles.tabView } >
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
