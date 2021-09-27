@@ -126,34 +126,7 @@ function MyTabBar({ state, descriptors, navigation }) {
 }
 
 const MyTabs = () => (
-  <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />} /*
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
-          if (route.name === 'Home') {
-            iconName = focused
-              ? require('./../../assets/icons/iconInicioTopActive.png')
-              : require('./../../assets/icons/iconInicioTop.png');
-          } else if (route.name === 'Cursos') {
-            iconName = require('./../../assets/icons/iconCursosTop.png');
-          } else if (route.name === 'Clases en Vivo') {
-            iconName = require('./../../assets/icons/iconClasesTop.png');
-          } else if (route.name === 'Videos') {
-            iconName = require('./../../assets/icons/iconVideoTop.png');
-          }
-          // You can return any component that you like here!
-          return (<View>
-            <Image source={iconName} style={{ height : 30, width: 30}} 
-              resizeMode="contain"/>
-          </View>
-           );
-        },
-      })}
-      tabBarOptions={{ 
-        activeTintColor: '#FFDF73',
-        inactiveTintColor: '#19265D'
-      }} */
-    >
+  <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />} >
     <Tab.Screen name="Home" component={MainNavigator} style={styles.tabText}/>
     <Tab.Screen name="Cursos" component={CoursesWeb} style={styles.tabText}/>
     <Tab.Screen name="Clases en Vivo" component={LiveClassesWeb} style={styles.tabText}/>

@@ -5,7 +5,8 @@ export const homeContent = [
     photo_url:
       'https://dotasec.com/menu/banner2_innopolitica1.png',
     icon_url:
-      'https://dotasec.com/menu/Vector.png'
+      'https://dotasec.com/menu/Vector.png',
+    action: 'Curso Lista',
   },
   {
     id: 2,
@@ -13,14 +14,16 @@ export const homeContent = [
     photo_url:
     'https://dotasec.com/menu/banner3_innopolitica1.png',
     icon_url:
-      'https://dotasec.com/menu/Vector2.png'
+      'https://dotasec.com/menu/Vector2.png',
+    action: 'Noticia Lista',
   },
   {
     id: 3,
     name: 'Eventos',
     photo_url: 'https://dotasec.com/menu/banner1b_innopolitica1.png',
     icon_url:
-      'https://dotasec.com/menu/Vector3.png'
+      'https://dotasec.com/menu/Vector3.png',
+    action: 'Curso Lista',
   },
 ];
 export const homeSubContent = [
@@ -43,22 +46,27 @@ export const coursesContent = [
     id: 1,
     name: 'Liderazgo y formación democrática: Sé el lider del siglo XXI',
     photo_url: 'https://dotasec.com/menu/imgcurso2.png',
-    fecha_inicio:
-      '20210925'
+    fecha_inicio:'20210925',
+    descrip : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.',
+    link: 'https://ziel.com.co/portafolio/'
   },
   {
     id: 2,
     name: 'Herramientas para la participación Democrática',
     photo_url:  'https://dotasec.com/menu/imgcurso1.png',
     fecha_inicio:
-      '20210926'
+      '20210926',
+      descrip : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.',
+      link: 'https://ziel.com.co/portafolio/'
   },
   {
     id: 3,
     name: 'Liderazgo y formación democrática: Sé el lider del siglo XXI',
     photo_url: 'https://dotasec.com/menu/imgcurso2.png',
     fecha_inicio:
-      '20210928'
+      '20210928',
+      descrip : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.',
+      link: 'https://ziel.com.co/portafolio/'
   },
 ];
 

@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
   },
   contentPhoto: {
     zIndex: 1,
-    elevation: 1,
     width: '100%',
     height: '100%',
     borderRadius: 30,

@@ -1,6 +1,20 @@
 import { Text } from 'react-native';
 import React, { Component } from 'react';
-import { recipes, categories, ingredients } from './dataArrays';
+import { coursesContent,recipes, categories, ingredients } from './dataArrays';
+
+
+export function getCoursesByName(Id) {
+  let name;
+  coursesContent.map(data => {
+    if (data.id == Id) {
+      name = data.name;
+    }
+  });
+  return name;
+}
+
+
+/*** */
 
 export function getCategoryById(categoryId) {
   let category;

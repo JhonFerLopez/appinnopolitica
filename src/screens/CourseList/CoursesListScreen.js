@@ -20,9 +20,7 @@ export default class CoursesListScreen extends React.Component {
   }
 
   onPressCourses = item => {
-    const title = item.name;
-    const course = item;
-    this.props.navigation.navigate('Curso', { course, title });
+    this.props.navigation.navigate('Curso', { item });
   };
 
   renderCoursesList = ({ item }) => (

@@ -29,7 +29,7 @@ export default class HomeScreen extends React.Component {
   }
 
   onPressContent = item => {
-    this.props.navigation.navigate('Curso Lista', { item });
+    this.props.navigation.navigate(item.action, { item });
   };
 
   onPressRecipe = item => {
