@@ -141,7 +141,7 @@ const MyTabs = () => (
 const DrawerStack = () => (
   <Drawer.Navigator
     initialRouteName='Home'
-    drawerContent={ props => DrawerContainer }
+    drawerContent={(props) => <DrawerContainer {...props} />}
   >
     <Drawer.Screen name='Home' component={ MyTabs } options={ navOptionHandler } /> 
   </Drawer.Navigator>

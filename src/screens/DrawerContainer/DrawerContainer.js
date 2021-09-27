@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View,Text,Linking } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
 import MenuButton from '../../components/MenuButton/MenuButton';
@@ -11,27 +11,45 @@ export default class DrawerContainer extends React.Component {
       <View style={styles.content}>
         <View style={styles.container}>
           <MenuButton
-            title="HOME"
-            source={require('../../../assets/icons/home.png')}
+            title="Lista de Cursos"
+            source={require('../../../assets/icons/iconCursosTop.png')}
             onPress={() => {
-              navigation.navigate('Home');
+              navigation.navigate('Curso Lista');
               navigation.closeDrawer();
             }}
           />
           <MenuButton
-            title="CATEGORIES"
-            source={require('../../../assets/icons/category.png')}
+            title="Lista de Noticias"
+            source={require('../../../assets/icons/iconCursosTop.png')}
             onPress={() => {
-              navigation.navigate('CoursesList');
+              navigation.navigate('Noticia Lista');
               navigation.closeDrawer();
             }}
           />
           <MenuButton
-            title="SEARCH"
-            source={require('../../../assets/icons/search.png')}
+            title="Lista de Eventos"
+            source={require('../../../assets/icons/iconCursosTop.png')}
             onPress={() => {
-              navigation.navigate('News');
+              navigation.navigate('Evento Lista');
               navigation.closeDrawer();
+            }}
+          />
+          <MenuButton
+            title="Pagina de Cursos"
+            source={require('../../../assets/icons/iconCursosTop.png')}
+            onPress={() => {Linking.openURL('https://ziel.com.co/');
+            }}
+          />
+          <MenuButton
+            title="Clases en Vivo"
+            source={require('../../../assets/icons/iconCursosTop.png')}
+            onPress={() => {Linking.openURL('https://ziel.com.co/');
+            }}
+          />
+          <MenuButton
+            title="Videos"
+            source={require('../../../assets/icons/iconCursosTop.png')}
+            onPress={() => {Linking.openURL('https://ziel.com.co/');
             }}
           />
         </View>
