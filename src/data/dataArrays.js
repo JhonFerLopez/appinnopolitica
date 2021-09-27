@@ -47,7 +47,7 @@ export const coursesContent = [
     name: 'Liderazgo y formación democrática: Sé el lider del siglo XXI',
     photo_url: 'https://dotasec.com/menu/imgcurso2.png',
     fecha_inicio:'20210925',
-    descrip : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.',
+    descrip : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.',
     link: 'https://ziel.com.co/portafolio/'
   },
   {
@@ -69,6 +69,83 @@ export const coursesContent = [
       link: 'https://ziel.com.co/portafolio/'
   },
 ];
+
+export const newsContent = [
+  {
+    id: 1,
+    name: 'Evento Innopolítica 2021',
+    photo_url: 'https://dotasec.com/menu/imgcurso2.png',
+    fecha_inicio:'25',
+    fecha_letra:'nov',
+    descrip : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.',
+    link: 'https://ziel.com.co/portafolio/'
+  },
+  {
+    id: 2,
+    name: 'Liderazgo Democrático',
+    photo_url:  'https://dotasec.com/menu/imgcurso1.png',
+    fecha_inicio: '03',
+    fecha_letra:'ago',
+    descrip : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.',
+    link: 'https://ziel.com.co/portafolio/'
+  },
+  {
+    id: 3,
+    name: 'Herramientas para la participación',
+    photo_url: 'https://dotasec.com/menu/imgcurso2.png',
+    fecha_inicio: '10',
+    fecha_letra:'dic',
+    descrip : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.',
+    link: 'https://ziel.com.co/portafolio/'
+  },
+  {
+    id: 4,
+    name: 'Liderazgo y formación democrática: Sé el lider del siglo XXI',
+    photo_url: 'https://dotasec.com/menu/imgcurso2.png',
+    fecha_inicio: '15',
+    fecha_letra:'may',
+    descrip : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.',
+    link: 'https://ziel.com.co/portafolio/'
+  },
+  {
+    id: 5,
+    name: 'Evento Innopolítica 2021',
+    photo_url: 'https://dotasec.com/menu/imgcurso2.png',
+    fecha_inicio:'31',
+    fecha_letra:'abr',
+    descrip : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.',
+    link: 'https://ziel.com.co/portafolio/'
+  },
+  {
+    id: 6,
+    name: 'Liderazgo Democrático',
+    photo_url:  'https://dotasec.com/menu/imgcurso1.png',
+    fecha_inicio: '22',
+    fecha_letra:'mar',
+    descrip : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.',
+    link: 'https://ziel.com.co/portafolio/'
+  },
+  {
+    id: 7,
+    name: 'Herramientas para la participación',
+    photo_url: 'https://dotasec.com/menu/imgcurso2.png',
+    fecha_inicio: '09',
+    fecha_letra:'feb',
+    descrip : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.',
+    link: 'https://ziel.com.co/portafolio/'
+  },
+  {
+    id: 8,
+    name: 'Liderazgo y formación democrática: Sé el lider del siglo XXI',
+    photo_url: 'https://dotasec.com/menu/imgcurso2.png',
+    fecha_inicio:'26',
+    fecha_letra:'ene',
+    descrip : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel.',
+    link: 'https://ziel.com.co/portafolio/'
+  },
+];
+
+
 
 
 
