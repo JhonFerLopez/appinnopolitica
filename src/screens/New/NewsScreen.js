@@ -4,46 +4,63 @@ import {
   Text,
   View,
   Image,
-  TouchableHighlight
+  TouchableHighlight,
+  Button,
+  Linking,
+  ScrollView
 } from 'react-native';
 import styles from './styles';
-import { categories } from '../../data/dataArrays';
-import { getNumberOfRecipes } from '../../data/MockDataAPI';
+import { coursesContent } from '../../data/dataArrays';
+import { getCoursesByName } from '../../data/MockDataAPI';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default class NewsScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Noticias'
+  static navigationOptions = ({ route, navigation }) => {
+    return {
+      headerTransparent: 'true',
+      headerLeft: () => <BackButton
+        onPress={() => {
+          navigation.goBack();
+        }}
+      />
+    };
   };
 
   constructor(props) {
     super(props);
+    this.state = {
+      activeSlide: 0
+    };
   }
 
-  onPressCategory = item => {
-    const title = item.name;
-    const category = item;
-    this.props.navigation.navigate('RecipesList', { category, title });
+  onPressNewPageWeb = (item) => {
+    Linking.openURL(item.link);
   };
 
-  renderCategory = ({ item }) => (
-    <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' onPress={() => this.onPressCategory(item)}>
-      <View style={styles.categoriesItemContainer}>
-        <Image style={styles.categoriesPhoto} source={{ uri: item.photo_url }} />
-        <Text style={styles.categoriesName}>{item.name}</Text>
-        <Text style={styles.categoriesInfo}>{getNumberOfRecipes(item.id)} recipes</Text>
-      </View>
-    </TouchableHighlight>
-  );
-
   render() {
+    const { route } = this.props;
+    const { item } = route.params;
+
+    const name = item.name;
+    const photo_url = item.photo_url;
+    const fecha_inicio = item.fecha_inicio;
+    const descrip = item.descrip;
+   
     return (
-      <View>
-        <FlatList
-          data={categories}
-          renderItem={this.renderCategory}
-          keyExtractor={item => `${item.id}`}
-        />
-      </View>
+      <View style={styles.newsItemContainer}>
+        <ScrollView style={styles.newsItemContainerOne}>
+          <Image style={styles.newsPhoto} source={{ uri: photo_url }  } />
+          <Text style={styles.newsName}>{name}</Text>
+          <Text style={styles.newsFecha}>{fecha_inicio}</Text> 
+          <Text style={styles.newsDescrip}>{descrip}</Text>                 
+        </ScrollView>        
+        <View style={styles.viewButton} >
+          <TouchableOpacity style={styles.newsButton} onPress={() => this.onPressNewPageWeb(item)}>
+            <Image style={styles.newsButtonPhoto} source={{ uri:'https://dotasec.com/menu/iconCurso.png'}} />
+            <Text style={styles.newsButtonTitle}>Ver más</Text>
+          </TouchableOpacity> 
+        </View>
+      </View>        
     );
   }
 }

@@ -57,7 +57,7 @@ export default class CoursesScreen extends React.Component {
         <View style={styles.viewButton} >
           <TouchableOpacity style={styles.coursesButton} onPress={() => this.onPressCoursesPageWeb(item)}>
             <Image style={styles.coursesButtonPhoto} source={{ uri:'https://dotasec.com/menu/iconCurso.png'}} />
-            <Text style={styles.coursesButtonTitle}>Ver más</Text>
+            <Text style={styles.coursesButtonTitle}>Ver Curso</Text>
           </TouchableOpacity> 
         </View>
       </View>        
