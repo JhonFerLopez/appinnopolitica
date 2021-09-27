@@ -7,16 +7,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 'auto',
   },
+  coursesItemContainerOne: {
+    width: '100%',
+    marginBottom: 90,
+  },
   coursesPhoto: {
     width: '100%',
     height: 220,
     marginTop: 12,
   },
   coursesName: {
-    width: '100%',
+    width: '95%',
     marginTop: 13,
-    marginLeft: 15,
-    fontSize: 18,
+    marginLeft: 15, 
+    fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'left',
     color: '#19265D',
@@ -32,9 +36,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins',
   },
   coursesDescrip: {
-    width: '100%',
+    width: '97%',
     marginTop: 19,
-    marginLeft: 15,
+    marginLeft: 6,
     marginRight: 15,
     paddingLeft: 10,
     paddingRight: 10,
@@ -72,10 +76,12 @@ const styles = StyleSheet.create({
   },
   viewButton: {
     width: '100%',
-    height: 82,
+    height: 84,
+    paddingTop: 4,
     alignItems: 'center',
     position: 'absolute',
-    bottom: 10,
+    bottom: 0,
+    backgroundColor: '#FFF',
   },
 });
 

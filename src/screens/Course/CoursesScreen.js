@@ -6,7 +6,8 @@ import {
   Image,
   TouchableHighlight,
   Button,
-  Linking
+  Linking,
+  ScrollView
 } from 'react-native';
 import styles from './styles';
 import { coursesContent } from '../../data/dataArrays';
@@ -47,10 +48,12 @@ export default class CoursesScreen extends React.Component {
    
     return (
       <View style={styles.coursesItemContainer}>
-        <Image style={styles.coursesPhoto} source={{ uri: photo_url }  } />
-        <Text style={styles.coursesName}>{name}</Text>
-        <Text style={styles.coursesDescrip}>{descrip}</Text>
-        <Text style={styles.coursesFecha}>{fecha_inicio}</Text>        
+        <ScrollView style={styles.coursesItemContainerOne}>
+          <Image style={styles.coursesPhoto} source={{ uri: photo_url }  } />
+          <Text style={styles.coursesName}>{name}</Text>
+          <Text style={styles.coursesDescrip}>{descrip}</Text>
+          <Text style={styles.coursesFecha}>{fecha_inicio}</Text>        
+        </ScrollView>        
         <View style={styles.viewButton} >
           <TouchableOpacity style={styles.coursesButton} onPress={() => this.onPressCoursesPageWeb(item)}>
             <Image style={styles.coursesButtonPhoto} source={{ uri:'https://dotasec.com/menu/iconCurso.png'}} />
