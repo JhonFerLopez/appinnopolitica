@@ -23,7 +23,7 @@ export const homeContent = [
     photo_url: 'https://dotasec.com/menu/banner1b_innopolitica1.png',
     icon_url:
       'https://dotasec.com/menu/Vector3.png',
-    action: 'Curso Lista',
+    action: 'Evento Lista',
   },
 ];
 export const homeSubContent = [

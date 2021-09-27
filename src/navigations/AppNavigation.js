@@ -28,6 +28,7 @@ import CoursesListScreen from '../screens/CourseList/CoursesListScreen';
 import Course from '../screens/Course/CoursesScreen';
 import NewsListScreen from '../screens/NewList/NewListScreen';
 import NewsScreen from '../screens/New/NewsScreen';
+import EventsListScreen from '../screens/EventsList/EventsListScreen';
 import EventsScreen from '../screens/Event/EventsScreen';
 
 const Stack = createStackNavigator();
@@ -48,7 +49,8 @@ const MainNavigator = () => (
     <Stack.Screen name='Curso' component={Course} options={ navOptionHandler }/>
     <Stack.Screen name='Noticia Lista' component={NewsListScreen} options={ navOptionHandler }/>
     <Stack.Screen name='Noticia' component={NewsScreen} options={ navOptionHandler }/>
-    <Stack.Screen name='Envento List' component={EventsScreen} options={ navOptionHandler }/>
+    <Stack.Screen name='Evento Lista' component={EventsListScreen} options={ navOptionHandler }/>
+    <Stack.Screen name='Evento' component={EventsScreen} options={ navOptionHandler }/>
   </Stack.Navigator>
 );
 
