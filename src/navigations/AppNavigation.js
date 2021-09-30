@@ -12,7 +12,8 @@ import {
   View,
   Image,
   Linking,
-  StackNavigator
+  StackNavigator, 
+  Dimensions
 } from 'react-native';
 import styles from './styles';
 import { NavigationContainer } from '@react-navigation/native';
@@ -20,6 +21,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator }  from '@react-navigation/stack';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MenuImage from '../../components/MenuImage/MenuImage';
 
 /**Elementos importados del Menu */
 import DrawerContainer from '../screens/DrawerContainer/DrawerContainer';
@@ -31,6 +33,8 @@ import NewsScreen from '../screens/New/NewsScreen';
 import EventsListScreen from '../screens/EventsList/EventsListScreen';
 import EventsScreen from '../screens/Event/EventsScreen';
 
+const { width } = Dimensions.get("screen");
+
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
@@ -40,17 +44,30 @@ const navOptionHandler = () => ({
 
 /** */
 const MainNavigator = () => ( 
-  <Stack.Navigator initialRouteName='Home' screenOptions={{
-    headerStyle: { elevation: 0 },
-    cardStyle: { backgroundColor: '#fff' }
-}}>
-    <Stack.Screen name='Home' component={HomeScreen} options={ navOptionHandler }/>
-    <Stack.Screen name='Curso Lista' component={CoursesListScreen} options={ navOptionHandler }/>
-    <Stack.Screen name='Curso' component={Course} options={ navOptionHandler }/>
-    <Stack.Screen name='Noticia Lista' component={NewsListScreen} options={ navOptionHandler }/>
-    <Stack.Screen name='Noticia' component={NewsScreen} options={ navOptionHandler }/>
-    <Stack.Screen name='Evento Lista' component={EventsListScreen} options={ navOptionHandler }/>
-    <Stack.Screen name='Evento' component={EventsScreen} options={ navOptionHandler }/>
+  <Stack.Navigator initialRouteName='Home' 
+    screenOptions={({ navigation }) => ({
+      headerLeft: () => <MenuImage onPress={() => {
+        navigation.openDrawer();
+      }} />,
+      presentation: 'modal',
+      headerStyle: { width: '100%',elevation: 0,alignContent: 'center' },
+      cardStyle: { backgroundColor: '#fff' },
+      headerTitleStyle: {
+        width: '100%',
+        textAlignVertical: 'center',
+        fontWeight: '600',
+        textAlign: 'center',
+        alignSelf: 'center',
+        flex: 1,
+      }
+    })}>
+    <Stack.Screen name='Home' component={HomeScreen} />
+    <Stack.Screen name='Curso Lista' component={CoursesListScreen} />
+    <Stack.Screen name='Curso' component={Course}/>
+    <Stack.Screen name='Noticia Lista' component={NewsListScreen}/>
+    <Stack.Screen name='Noticia' component={NewsScreen}/>
+    <Stack.Screen name='Evento Lista' component={EventsListScreen}/>
+    <Stack.Screen name='Evento' component={EventsScreen}/>
   </Stack.Navigator>
 );
 
@@ -131,7 +148,7 @@ function MyTabBar({ state, descriptors, navigation }) {
 
 const MyTabs = () => (
   <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />} >
-    <Tab.Screen name="Home" component={MainNavigator} style={styles.tabText}/>
+    <Tab.Screen name="Home" component={MainNavigator} style={styles.tabText} options={ navOptionHandler }/>
     <Tab.Screen name="Cursos" component={CoursesWeb} style={styles.tabText}/>
     <Tab.Screen name="Clases en Vivo" component={LiveClassesWeb} style={styles.tabText}/>
     <Tab.Screen name="Videos" component={VideoWeb} style={styles.tabText} />
@@ -141,9 +158,9 @@ const MyTabs = () => (
 const DrawerStack = () => (
   <Drawer.Navigator
     initialRouteName='Home'
-    drawerContent={(props) => <DrawerContainer {...props} />}
+    drawerContent={(props) => <DrawerContainer {...props} />} 
   >
-    <Drawer.Screen name='Home' component={ MyTabs } options={ navOptionHandler } /> 
+    <Drawer.Screen name='Homer' component={ MyTabs } options={ navOptionHandler }/> 
   </Drawer.Navigator>
 );
 

@@ -10,13 +10,15 @@ import {
   Linking
 } from 'react-native';
 import styles from './styles';
+import MenuImage from '../../components/MenuImage/MenuImage';
 import { homeContent, homeSubContent, recipes } from '../../data/dataArrays';
 import { getNumberOfRecipes, getCategoryName } from '../../data/MockDataAPI';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    title: 'Home',
-    headerLeft: () => <MenuImage
+      title: 'Home',
+      headerTransparent: 'true',
+      headerLeft: () => <MenuImage
       onPress={() => {
         navigation.openDrawer();
       }}
@@ -38,7 +40,7 @@ export default class HomeScreen extends React.Component {
   };
 
   renderContent = ({ item }) => (
-    <TouchableHighlight onPress={() => this.onPressContent(item)}>
+    <TouchableHighlight underlayColor='rgba(73,182,77,0.0)' onPress={() => this.onPressContent(item)}>
       <View style={styles.contentItemContainer}>
         <Text style={styles.contentName}>{item.name}</Text>
         <Image style={styles.contentIcon} source={{ uri: item.icon_url }} />
@@ -47,7 +49,7 @@ export default class HomeScreen extends React.Component {
     </TouchableHighlight>
   );
   renderSubContent = ({ item }) => (
-    <TouchableHighlight underlayColor='rgba(73,182,77,0.9)' onPress={() => this.onPressRecipe(item)}>
+    <TouchableHighlight underlayColor='rgba(73,182,77,0.0)' onPress={() => this.onPressRecipe(item)}>
       <View style={styles.subContentItemContainer}>
         <View style={styles.ContainerSubPhoto}>
           <Image style={styles.subPhoto} source={{ uri: item.icon_url }} />
