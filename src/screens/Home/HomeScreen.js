@@ -28,6 +28,33 @@ export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     const { navigation } = this.props;
+    this.state = {
+      texto: 'hola',
+      loading: false,
+      pokemon: [],
+      url: 'https://pokeapi.co/api/v2/pokemon/'
+    }
+  }
+
+  componentDidMount(){
+    this.getPokemon();
+  }
+
+  getPokemon = () => {
+    this.setState({ loading:true });
+    fetch(this.state.url)
+    .then( res => res.json() )
+    .then( res => {
+      this.setState({
+        pokemon: res.results,
+        url: res.next,
+        loading: false
+      })
+      this.setState({ texto: 'john' });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   }
 
   onPressContent = item => {
@@ -60,9 +87,25 @@ export default class HomeScreen extends React.Component {
   );
 
   render() {
+    if(this.state.loading){
+      <View>
+        <Text>Cargando</Text>
+      </View>
+    }
+    console.log("-->>>> "+this.state.texto)
+    console.log("--> consulta ")
+    console.log(this.state.pokemon)
+    console.log("--> fin consulta")
     return (
       <ScrollView>
         <View>
+          <FlatList
+            data={this.state.pokemon}
+            renderItem={
+              ({item}) => (<Text>{ item.name }</Text>)
+            }
+            keyExtractor={(item, index) => index.toString()}
+          />
           <FlatList
             data={homeContent}
             renderItem={this.renderContent}
