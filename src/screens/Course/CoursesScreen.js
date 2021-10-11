@@ -34,7 +34,9 @@ export default class CoursesScreen extends React.Component {
   }
 
   onPressCoursesPageWeb = (item) => {
-    Linking.openURL(item.link);
+    if(item.link === null){
+      Linking.openURL(item.link);
+    }
   };
 
   render() {
@@ -50,9 +52,8 @@ export default class CoursesScreen extends React.Component {
       <View style={styles.coursesItemContainer}>
         <ScrollView style={styles.coursesItemContainerOne}>
           <Image style={styles.coursesPhoto} source={{ uri: photo_url }  } />
-          <Text style={styles.coursesName}>{name}</Text>
           <Text style={styles.coursesDescrip}>{descrip}</Text>
-          <Text style={styles.coursesFecha}>{fecha_inicio}</Text>        
+          <Text style={styles.coursesFecha}>Fecha: {fecha_inicio}</Text>        
         </ScrollView>        
         <View style={styles.viewButton} >
           <TouchableOpacity style={styles.coursesButton} onPress={() => this.onPressCoursesPageWeb(item)}>

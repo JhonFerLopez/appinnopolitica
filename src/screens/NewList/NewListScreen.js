@@ -17,6 +17,27 @@ export default class NewListScreen extends React.Component {
 
   constructor(props) {
     super(props);
+    const { navigation } = this.props;
+    this.state = {
+      noticias: [],
+      url: 'https://app-innopolitica.com.co/wp-json/noticias/v2/noticia/'
+    }
+  }
+  componentDidMount(){
+    this.getNoticias();
+  }
+
+  getNoticias = () => {
+    fetch(this.state.url)
+    .then( res => res.json() )
+    .then( res => {
+      this.setState({
+        noticias: res.result
+      })
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   }
 
   onPressNews = item => {
@@ -27,8 +48,8 @@ export default class NewListScreen extends React.Component {
     <TouchableHighlight underlayColor='rgba(73,182,77,0.0)' onPress={() => this.onPressNews(item)}>
       <View style={styles.newlistItemContainer}>
         <View style={styles.newlistIcon}>
-          <Text style={styles.newlistFecha}>{item.fecha_inicio}</Text>
-          <Text style={styles.newlistFechaLetra}>{item.fecha_letra}</Text>
+          <Text style={styles.newlistFecha}>{item.dia}</Text>
+          <Text style={styles.newlistFechaLetra}>{item.mes}</Text>
         </View>
         <Text style={styles.newlistName}>{item.name}</Text>
       </View>
@@ -39,7 +60,7 @@ export default class NewListScreen extends React.Component {
     return (
       <View style={{alignItems: 'center'}}>
         <FlatList          
-          data={newsContent}
+          data={this.state.noticias}
           renderItem={this.renderNewsList}
           keyExtractor={item => `${item.id}`}
         />

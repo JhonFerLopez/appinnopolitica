@@ -42,7 +42,7 @@ export default class NewsScreen extends React.Component {
     const { item } = route.params;
 
     const name = item.name;
-    const photo_url = item.photo_url;
+    const photo_url = item.img;
     const fecha_inicio = item.fecha_inicio;
     const descrip = item.descrip;
    
@@ -56,7 +56,7 @@ export default class NewsScreen extends React.Component {
         </ScrollView>        
         <View style={styles.viewButton} >
           <TouchableOpacity style={styles.newsButton} onPress={() => this.onPressNewPageWeb(item)}>
-            <Image style={styles.newsButtonPhoto} source={{ uri:'https://dotasec.com/menu/iconCurso.png'}} />
+            <Image style={styles.newsButtonPhoto} source={{ uri:item.icon}} />
             <Text style={styles.newsButtonTitle}>Ver más</Text>
           </TouchableOpacity> 
         </View>

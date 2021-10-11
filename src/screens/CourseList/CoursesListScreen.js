@@ -58,11 +58,6 @@ export default class CoursesListScreen extends React.Component {
   );
 
   render() {
-    console.log("hola mundo");
-    console.log(this.state.url);
-    console.log("-->  ");
-    console.log(this.state.cursos);
-    console.log("  <---");
     return (
       <View>
         <FlatList
