@@ -42,7 +42,7 @@ export default class CoursesScreen extends React.Component {
     const { item } = route.params;
 
     const name = item.name;
-    const photo_url = item.photo_url;
+    const photo_url = item.img;
     const fecha_inicio = item.fecha_inicio;
     const descrip = item.descrip;
    
@@ -56,7 +56,7 @@ export default class CoursesScreen extends React.Component {
         </ScrollView>        
         <View style={styles.viewButton} >
           <TouchableOpacity style={styles.coursesButton} onPress={() => this.onPressCoursesPageWeb(item)}>
-            <Image style={styles.coursesButtonPhoto} source={{ uri:'https://dotasec.com/menu/iconCurso.png'}} />
+            <Image style={styles.coursesButtonPhoto} source={{ uri:item.icon }} />
             <Text style={styles.coursesButtonTitle}>Ver Curso</Text>
           </TouchableOpacity> 
         </View>

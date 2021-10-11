@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   coursesButtonPhoto: {
-    width: 37,
+    width: 40,
     height: 40,
     position: 'absolute',
     top: 20,

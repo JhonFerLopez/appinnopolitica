@@ -20,6 +20,27 @@ export default class CoursesListScreen extends React.Component {
 
   constructor(props) {
     super(props);
+    const { navigation } = this.props;
+    this.state = {
+      cursos: [],
+      url: 'https://app-innopolitica.com.co/wp-json/cursos/v2/curso/'
+    }
+  }
+  componentDidMount(){
+    this.getCursos();
+  }
+
+  getCursos = () => {
+    fetch(this.state.url)
+    .then( res => res.json() )
+    .then( res => {
+      this.setState({
+        cursos: res.result
+      })
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   }
 
   onPressCourses = item => {
@@ -29,7 +50,7 @@ export default class CoursesListScreen extends React.Component {
   renderCoursesList = ({ item }) => (
     <TouchableHighlight underlayColor='rgba(73,182,77,0.0)' onPress={() => this.onPressCourses(item)}>
       <View style={styles.courseslistItemContainer}>
-        <Image style={styles.courseslistPhoto} source={{ uri: item.photo_url }} />
+        <Image style={styles.courseslistPhoto} source={{ uri: item.img }} />
         <Text style={styles.courseslistName}>{item.name}</Text>
         <Text style={styles.courseslistFecha}>Fecha: {item.fecha_inicio}</Text>
       </View>
@@ -37,10 +58,15 @@ export default class CoursesListScreen extends React.Component {
   );
 
   render() {
+    console.log("hola mundo");
+    console.log(this.state.url);
+    console.log("-->  ");
+    console.log(this.state.cursos);
+    console.log("  <---");
     return (
       <View>
         <FlatList
-          data={coursesContent}
+          data={this.state.cursos}
           renderItem={this.renderCoursesList}
           keyExtractor={item => `${item.id}`}
         />
