@@ -51,7 +51,7 @@ export default class NewsScreen extends React.Component {
         <ScrollView style={styles.newsItemContainerOne}>
           <Image style={styles.newsPhoto} source={{ uri: photo_url }  } />
           <Text style={styles.newsName}>{name}</Text>
-          <Text style={styles.newsFecha}>{fecha_inicio}</Text> 
+          <Text style={styles.newsFecha}>Fecha: {fecha_inicio}</Text> 
           <Text style={styles.newsDescrip}>{descrip}</Text>                 
         </ScrollView>        
         <View style={styles.viewButton} >

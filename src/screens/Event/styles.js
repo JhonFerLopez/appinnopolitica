@@ -1,43 +1,88 @@
-import { StyleSheet } from 'react-native';
+import { ImageBackground, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  categoriesItemContainer: {
+  newsItemContainer: {
     flex: 1,
     margin: 10,
-    justifyContent: 'center',
     alignItems: 'center',
-    height: 215,
-    borderColor: '#cccccc',
-    borderWidth: 0.5,
-    borderRadius: 20,
+    height: 'auto',
   },
-  categoriesPhoto: {
+  newsItemContainerOne: {
     width: '100%',
-    height: 155,
-    borderRadius: 20,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    shadowColor: 'blue',
-    shadowOffset: {
-      width: 0,
-      height: 3
-    },
-    shadowRadius: 5,
-    shadowOpacity: 1.0,
-    elevation: 3
+    marginBottom: 90,
   },
-  categoriesName: {
-    flex: 1,
+  newsPhoto: {
+    width: '100%',
+    height: 220,
+    marginTop: 12,
+  },
+  newsName: {
+    width: '95%',
+    marginTop: 13,
+    marginLeft: 15, 
     fontSize: 20,
     fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#333333',
-    marginTop: 8
+    textAlign: 'left',
+    color: '#19265D',
   },
-  categoriesInfo: {
-    marginTop: 3,
-    marginBottom: 5
-  }
+  newsFecha: {
+    width: '100%',
+    marginTop: 6,
+    marginLeft: 15,
+    fontSize: 19,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    color: '#9aa0b8',
+    fontFamily: 'Poppins',
+  },
+  newsDescrip: {
+    width: '97%',
+    marginTop: 20,
+    marginLeft: 6,
+    marginRight: 15,
+    paddingLeft: 10,
+    paddingRight: 10,
+    fontSize: 16,
+    fontWeight: 'normal',
+    textAlign: 'justify',
+    color: '#19265D',
+  },
+  newsButton: {
+    width: 370,
+    height: 80,
+    borderWidth: 3,
+    borderColor: '#342274',
+    borderRadius: 20,
+  },
+  newsButtonPhoto: {
+    width: 45,
+    height: 45,
+    position: 'absolute',
+    top: 14,
+    left: 24,
+    zIndex: 1,
+    elevation: 1,
+  },
+  newsButtonTitle: {
+    fontSize: 22,
+    fontWeight: '800',
+    textAlign: 'justify',
+    color: '#19265D',
+    position: 'absolute',
+    top: 20,
+    left: 100,
+    zIndex: 1,
+    elevation: 1,
+  },
+  viewButton: {
+    width: '100%',
+    height: 84,
+    paddingTop: 4,
+    alignItems: 'center',
+    position: 'absolute',
+    bottom: 0,
+    backgroundColor: '#FFF',
+  },
 });
 
 export default styles;

@@ -34,9 +34,7 @@ export default class CoursesScreen extends React.Component {
   }
 
   onPressCoursesPageWeb = (item) => {
-    if(item.link === null){
-      Linking.openURL(item.link);
-    }
+    Linking.openURL(item.link);
   };
 
   render() {
