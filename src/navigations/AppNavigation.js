@@ -42,6 +42,13 @@ const navOptionHandler = () => ({
   headerShown: false
 })
 
+const menuValor = {
+  texto: 'hola'/*,
+  loading: false,
+  pokemon: [],
+  url: 'https://app-innopolitica.com.co/wp-json/config-home/v2/home/'*/
+}
+
 /** */
 const MainNavigator = () => ( 
   <Stack.Navigator initialRouteName='Home' 
@@ -105,7 +112,10 @@ function MyTabBar({ state, descriptors, navigation }) {
             navigation.navigate(route.name);
           }
         };
-
+         
+        console.log("Tab-> ");
+        console.log(menu);
+        console.log("Fin Tab");
         const onLongPress = () => {
           navigation.emit({
             type: 'tabLongPress',
@@ -163,11 +173,37 @@ const DrawerStack = () => (
     <Drawer.Screen name='Homer' component={ MyTabs } options={ navOptionHandler }/> 
   </Drawer.Navigator>
 );
+var menu  = 'hola luciana';
 
-export default function AppContainer() {
-  return(
-    <NavigationContainer>
-      <DrawerStack/>
-    </NavigationContainer>
-  )
+export default class AppContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      menu: '',
+      loading: false,
+      pokemon: [],
+      url: 'https://app-innopolitica.com.co/wp-json/config-home/v2/home/'
+    }
+  }  
+  getMenu = () => {
+    fetch(this.state.url)
+    .then( res => res.json() )
+    .then( res => {
+      this.menu = this.state.url;
+      this.setState({
+        menu: res.link_cursos
+      })
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  }
+
+  render(){
+    return(
+      <NavigationContainer>
+        <DrawerStack/>
+      </NavigationContainer>
+    )
+  } 
 }

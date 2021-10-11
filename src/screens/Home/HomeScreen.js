@@ -29,28 +29,24 @@ export default class HomeScreen extends React.Component {
     super(props);
     const { navigation } = this.props;
     this.state = {
-      texto: 'hola',
-      loading: false,
-      pokemon: [],
-      url: 'https://pokeapi.co/api/v2/pokemon/'
+      homePrincipal: [],
+      homeSecundario: [],
+      url: 'https://app-innopolitica.com.co/wp-json/config-home/v2/home/'
     }
   }
 
   componentDidMount(){
-    this.getPokemon();
+    this.getHome();
   }
 
-  getPokemon = () => {
-    this.setState({ loading:true });
+  getHome = () => {
     fetch(this.state.url)
     .then( res => res.json() )
     .then( res => {
       this.setState({
-        pokemon: res.results,
-        url: res.next,
-        loading: false
+        homePrincipal: res.contenido_principal,
+        homeSecundario: res.contenido_secundario,
       })
-      this.setState({ texto: 'john' });
     })
     .catch((error) => {
       console.error(error);
@@ -58,20 +54,21 @@ export default class HomeScreen extends React.Component {
   }
 
   onPressContent = item => {
-    this.props.navigation.navigate(item.action, { item });
+    this.props.navigation.navigate(item.link, { item });
   };
 
   onPressRecipe = item => {
-    Linking.openURL('https://ziel.com.co/');
-//    this.props.navigation.navigate('Recipe', { item });
+    if(item.action == 'app'){
+      this.props.navigation.navigate(item.link, { item });
+    }else{
+      Linking.openURL('https://ziel.com.co/');
+    }
   };
 
   renderContent = ({ item }) => (
     <TouchableHighlight underlayColor='rgba(73,182,77,0.0)' onPress={() => this.onPressContent(item)}>
       <View style={styles.contentItemContainer}>
-        <Text style={styles.contentName}>{item.name}</Text>
-        <Image style={styles.contentIcon} source={{ uri: item.icon_url }} />
-        <Image style={styles.contentPhoto} source={{ uri: item.photo_url }} />
+        <Image style={styles.contentPhoto} source={{ uri: item.banner }} />
       </View>
     </TouchableHighlight>
   );
@@ -79,7 +76,7 @@ export default class HomeScreen extends React.Component {
     <TouchableHighlight underlayColor='rgba(73,182,77,0.0)' onPress={() => this.onPressRecipe(item)}>
       <View style={styles.subContentItemContainer}>
         <View style={styles.ContainerSubPhoto}>
-          <Image style={styles.subPhoto} source={{ uri: item.icon_url }} />
+          <Image style={styles.subPhoto} source={{ uri: item.icon }} />
         </View>
         <Text style={styles.subTitle}>{item.name}</Text>
       </View>
@@ -87,27 +84,11 @@ export default class HomeScreen extends React.Component {
   );
 
   render() {
-    if(this.state.loading){
-      <View>
-        <Text>Cargando</Text>
-      </View>
-    }
-    console.log("-->>>> "+this.state.texto)
-    console.log("--> consulta ")
-    console.log(this.state.pokemon)
-    console.log("--> fin consulta")
     return (
       <ScrollView>
         <View>
           <FlatList
-            data={this.state.pokemon}
-            renderItem={
-              ({item}) => (<Text>{ item.name }</Text>)
-            }
-            keyExtractor={(item, index) => index.toString()}
-          />
-          <FlatList
-            data={homeContent}
+            data={this.state.homePrincipal}
             renderItem={this.renderContent}
             keyExtractor={item => `${item.id}`}
           />
@@ -115,9 +96,9 @@ export default class HomeScreen extends React.Component {
             vertical
             showsVerticalScrollIndicator={false}
             numColumns={2}
-            data={homeSubContent}
+            data={this.state.homeSecundario}
             renderItem={this.renderSubContent}
-            keyExtractor={item => `${item.recipeId}`}
+            keyExtractor={item => `${item.id}`}
           />
         </View>
       </ScrollView>

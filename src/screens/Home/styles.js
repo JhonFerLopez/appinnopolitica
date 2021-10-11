@@ -14,29 +14,19 @@ const styles = StyleSheet.create({
   contentItemContainer: {
     flex: 1,
     margin: 10,
-    marginLeft: 20,
-    marginRight: 20,
+    marginLeft: 25,
+    marginRight: 25,
     justifyContent: 'center',
     alignItems: 'center',
     height: 130,
-    borderColor: '#cccccc',
-    borderWidth: 0.2,
-    borderRadius: 30,
-    
   },
   contentPhoto: {
     zIndex: 1,
-    width: '100%',
-    height: '100%',
-    borderRadius: 30,
+    width: 390,
+    height: 130,
+    borderRadius: 30, 
     shadowColor: 'blue',
-    shadowOffset: {
-      width: 0,
-      height: 1
-    },
-    shadowRadius: 5,
-    shadowOpacity: 1.0,
-    elevation: 3
+    elevation: 3,
   },
   contentName: {
     position: 'absolute',
