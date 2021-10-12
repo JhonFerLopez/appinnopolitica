@@ -32,6 +32,7 @@ import NewsListScreen from '../screens/NewList/NewListScreen';
 import NewsScreen from '../screens/New/NewsScreen';
 import EventsListScreen from '../screens/EventsList/EventsListScreen';
 import EventsScreen from '../screens/Event/EventsScreen';
+import ContactScreen from '../screens/Contact/ContactScreen';
 
 const { width } = Dimensions.get("screen");
 
@@ -75,6 +76,7 @@ const MainNavigator = () => (
     <Stack.Screen name='Noticia' component={NewsScreen}/>
     <Stack.Screen name='Evento Lista' component={EventsListScreen}/>
     <Stack.Screen name='Evento' component={EventsScreen}/>
+    <Stack.Screen name='Contactenos' component={ContactScreen}/>
   </Stack.Navigator>
 );
 
