@@ -2,6 +2,19 @@ import { StyleSheet } from 'react-native';
 import { color } from 'react-native-reanimated';
 
 const styles = StyleSheet.create({
+  presentacion : {
+    height: '100%',
+    alignContent: 'center',
+    alignItems: 'center'
+  },
+  fontPhoto : {
+    position: 'absolute',
+    bottom: 0,
+  },
+  logoPhoto : {
+    position: 'absolute',
+    bottom: '50%',
+  },
   tabView : {
     height: 70,
     flexDirection: 'row', 

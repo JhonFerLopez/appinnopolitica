@@ -1,3 +1,16 @@
+
+export const homeMenu = [
+  {
+    id: 1,
+    name: 'Cursos',
+    photo_url:
+      'https://dotasec.com/menu/banner2_innopolitica1.png',
+    icon_url:
+      'https://dotasec.com/menu/Vector.png',
+    action: 'Curso Lista',
+  }
+]
+
 export const homeContent = [
   {
     id: 1,
