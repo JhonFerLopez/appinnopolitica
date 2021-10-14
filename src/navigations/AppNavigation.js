@@ -160,7 +160,7 @@ export default class AppContainer extends React.Component {
                 });
               };
               let iconName ='';
-              if (route.name === 'Home') {
+              if (route.name === 'Inicio') {
                 iconName = isFocused
                   ? require('./../../assets/icons/iconInicioTopActive.png')
                   : require('./../../assets/icons/iconInicioTop.png');
@@ -183,7 +183,12 @@ export default class AppContainer extends React.Component {
                 >
                   <Image source={iconName} style={ styles.tabImage } 
                     resizeMode="contain"/>
-                  <Text style={{ fontSize: 100, color: isFocused ? '#673ab7' : '#222' }+styles.tabText}>
+                  <Text style={{ fontWeight: '500', 
+                    fontSize: 10, 
+                    color: isFocused ? '#FFDF73' : '#19265D',
+                    textAlign: 'center',
+                    letterSpacing: -0.24,
+                    paddingTop: 4 }}>
                     {label}
                   </Text>
                 </TouchableOpacity>
@@ -195,7 +200,7 @@ export default class AppContainer extends React.Component {
 
       const MyTabs = () => (
         <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />} >
-          <Tab.Screen name="Home" component={MainNavigator} style={styles.tabText} options={ navOptionHandler }/>
+          <Tab.Screen name="Inicio" component={MainNavigator} style={styles.tabText} options={ navOptionHandler }/>
           <Tab.Screen name="Cursos" component={CoursesWeb} style={styles.tabText}/>
           <Tab.Screen name="Clases en Vivo" component={LiveClassesWeb} style={styles.tabText}/>
           <Tab.Screen name="Videos" component={VideoWeb} style={styles.tabText} />

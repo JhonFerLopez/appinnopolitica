@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   subTitle: {
     width: '100%',
     flex: 1,
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'left',
     color: '#19265D',
