@@ -11,8 +11,6 @@ import {
 } from 'react-native';
 import styles from './styles';
 import MenuImage from '../../components/MenuImage/MenuImage';
-import { homeContent, homeSubContent, recipes } from '../../data/dataArrays';
-import { getNumberOfRecipes, getCategoryName } from '../../data/MockDataAPI';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => ({
@@ -57,11 +55,11 @@ export default class HomeScreen extends React.Component {
     this.props.navigation.navigate(item.link, { item });
   };
 
-  onPressRecipe = item => {
+  onPressSubContent = item => {
     if(item.action == 'app'){
       this.props.navigation.navigate(item.link, { item });
     }else{
-      Linking.openURL('https://ziel.com.co/');
+      Linking.openURL(item.link);
     }
   };
 
@@ -73,7 +71,7 @@ export default class HomeScreen extends React.Component {
     </TouchableHighlight>
   );
   renderSubContent = ({ item }) => (
-    <TouchableHighlight underlayColor='rgba(73,182,77,0.0)' onPress={() => this.onPressRecipe(item)}>
+    <TouchableHighlight underlayColor='rgba(73,182,77,0.0)' onPress={() => this.onPressSubContent(item)}>
       <View style={styles.subContentItemContainer}>
         <View style={styles.ContainerSubPhoto}>
           <Image style={styles.subPhoto} source={{ uri: item.icon }} />
