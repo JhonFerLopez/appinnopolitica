@@ -12,17 +12,18 @@ const RECIPE_ITEM_MARGIN = 20;
 
 const styles = StyleSheet.create({
   contentItemContainer: {
+    width: width ,
     flex: 1,
-    margin: 10,
-    marginLeft: 25,
-    marginRight: 25,
+    margin: 12,
+    marginLeft: 0,
+    marginRight: 0,
     justifyContent: 'center',
     alignItems: 'center',
     height: 130,
   },
   contentPhoto: {
     zIndex: 1,
-    width: 390,
+    width: '93%',
     height: 130,
     borderRadius: 30, 
     shadowColor: 'blue',

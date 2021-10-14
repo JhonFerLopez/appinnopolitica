@@ -83,13 +83,13 @@ export default class AppContainer extends React.Component {
             headerLeft: () => <MenuImage onPress={() => {
               navigation.openDrawer();
             }} />,
-            headerStyle: { width: '100%',elevation: 0,alignContent: 'center' },
+            headerStyle: { width: '100%',elevation: 0,alignContent: 'center',height: 70 },
             title: <Image style={{ width: 260, height: 32 }} 
               source={{ uri: 'https://app-innopolitica.com.co/wp-content/uploads/2021/10/innopoliticaLogo.png' }}
               resizeMode='contain'/>,             
             headerTitleStyle: {
               width: '100%',
-              top: 5,
+              top: 10,
               flex: 1,
             },
             presentation: 'modal',
