@@ -11,7 +11,7 @@ export default class DrawerContainer extends React.Component {
       <View style={styles.content}>
         <View style={styles.container}>
           <MenuButton
-            title="Lista de Cursos"
+            title="Ver Cursos"
             source={require('../../../assets/icons/iconCursosTop.png')}
             onPress={() => {
               navigation.navigate('Curso Lista');
@@ -19,37 +19,27 @@ export default class DrawerContainer extends React.Component {
             }}
           />
           <MenuButton
-            title="Lista de Noticias"
-            source={require('../../../assets/icons/iconCursosTop.png')}
+            title="Ver Noticias"
+            source={require('../../../assets/icons/Vector2blue.png')}
             onPress={() => {
               navigation.navigate('Noticia Lista');
               navigation.closeDrawer();
             }}
           />
           <MenuButton
-            title="Lista de Eventos"
-            source={require('../../../assets/icons/iconCursosTop.png')}
+            title="Ver Eventos"
+            source={require('../../../assets/icons/Vector3blue.png')}
             onPress={() => {
               navigation.navigate('Evento Lista');
               navigation.closeDrawer();
             }}
           />
           <MenuButton
-            title="Pagina de Cursos"
-            source={require('../../../assets/icons/iconCursosTop.png')}
-            onPress={() => {Linking.openURL('https://ziel.com.co/');
-            }}
-          />
-          <MenuButton
-            title="Clases en Vivo"
-            source={require('../../../assets/icons/iconCursosTop.png')}
-            onPress={() => {Linking.openURL('https://ziel.com.co/');
-            }}
-          />
-          <MenuButton
-            title="Videos"
-            source={require('../../../assets/icons/iconCursosTop.png')}
-            onPress={() => {Linking.openURL('https://ziel.com.co/');
+            title="Contáctenos"
+            source={require('../../../assets/icons/contactenos.png')}
+            onPress={() => {
+              navigation.navigate('Contactenos');
+              navigation.closeDrawer();
             }}
           />
         </View>
