@@ -14,17 +14,19 @@ const styles = StyleSheet.create({
   contentItemContainer: {
     width: width ,
     flex: 1,
-    margin: 12,
+    marginBottom: 20,
     marginLeft: 0,
     marginRight: 0,
+    paddingLeft: 10,
+    paddingRight: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 130,
+    height: 120,
   },
   contentPhoto: {
     zIndex: 1,
-    width: '93%',
-    height: 130,
+    width: '100%',
+    height: '100%',
     borderRadius: 30, 
     shadowColor: 'blue',
     elevation: 3,
@@ -85,6 +87,8 @@ const styles = StyleSheet.create({
     marginRight: 5,
     marginLeft: 5,
     paddingLeft: 15,
+    //borderWidth: 2,
+    //borderColor: 'red',
   },
 });
 

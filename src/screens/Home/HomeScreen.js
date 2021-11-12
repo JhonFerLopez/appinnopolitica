@@ -4,6 +4,7 @@ import {
   Text,
   View,
   Image,
+  ImageBackground,
   TouchableHighlight,
   TouchableOpacity,
   ScrollView,
@@ -66,7 +67,7 @@ export default class HomeScreen extends React.Component {
   renderContent = ({ item }) => (
     <TouchableHighlight underlayColor='rgba(73,182,77,0.0)' onPress={() => this.onPressContent(item)}>
       <View style={styles.contentItemContainer}>
-        <Image style={styles.contentPhoto} source={{ uri: item.banner }} />
+        <Image style={styles.contentPhoto} source={{ uri: item.banner }} resizeMode="cover" />
       </View>
     </TouchableHighlight>
   );
