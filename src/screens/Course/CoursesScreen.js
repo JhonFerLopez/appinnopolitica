@@ -49,7 +49,7 @@ export default class CoursesScreen extends React.Component {
     return (
       <View style={styles.coursesItemContainer}>
         <ScrollView style={styles.coursesItemContainerOne}>
-          <Image style={styles.coursesPhoto} source={{ uri: photo_url }  } />
+          <Image style={styles.coursesPhoto} source={{ uri: photo_url }} resizeMode='contain' />
           <Text style={styles.coursesDescrip}>{descrip}</Text>
           <Text style={styles.coursesFecha}>Fecha: {fecha_inicio}</Text>        
         </ScrollView>        

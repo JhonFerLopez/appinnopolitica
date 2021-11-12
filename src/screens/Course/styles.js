@@ -1,5 +1,7 @@
-import { ImageBackground, StyleSheet } from 'react-native';
+import { ImageBackground, StyleSheet, Dimensions } from 'react-native';
 
+const { width, height } = Dimensions.get('window');
+const MARGIN = 10;
 const styles = StyleSheet.create({
   coursesItemContainer: {
     flex: 1,
@@ -10,6 +12,7 @@ const styles = StyleSheet.create({
   coursesItemContainerOne: {
     width: '100%',
     marginBottom: 90,
+
   },
   coursesPhoto: {
     width: '100%',
@@ -48,15 +51,15 @@ const styles = StyleSheet.create({
     color: '#19265D',
   },
   coursesButton: {
-    width: 370,
-    height: 80,
+    width: width - (MARGIN*2),
+    height: '100%',
     borderWidth: 3,
     borderColor: '#342274',
     borderRadius: 20,
   },
   coursesButtonPhoto: {
-    width: 45,
-    height: 45,
+    width: 36,
+    height: 40,
     position: 'absolute',
     top: 14,
     left: 24,
@@ -75,13 +78,13 @@ const styles = StyleSheet.create({
     elevation: 1,
   },
   viewButton: {
-    width: '100%',
+    width: width,
     height: 84,
     paddingTop: 4,
     alignItems: 'center',
     position: 'absolute',
     bottom: 0,
-    backgroundColor: '#FFF',
+    backgroundColor: '#fff',
   },
 });
 

@@ -1,11 +1,20 @@
-import { ImageBackground, StyleSheet } from 'react-native';
+import { ImageBackground, StyleSheet, Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
+const MARGIN = 10;
 
 const styles = StyleSheet.create({
+  newlistItemTouchable: {
+    width: width,
+    marginBottom: MARGIN,
+    paddingLeft: MARGIN,
+    paddingRight: MARGIN,
+  },
   newlistItemContainer: {
-    width: 370,
+    width: width - (MARGIN *2),
     height: 80,
     flex: 1,
-    margin: 10,
+    //margin: 10,
     borderWidth: 3,
     borderColor: '#342274',
     borderRadius: 20,
@@ -21,7 +30,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   newlistName: {
-    width: '76%',
+    width: '74%',
     marginLeft: 80,
     fontSize: 18,
     fontWeight: '600',

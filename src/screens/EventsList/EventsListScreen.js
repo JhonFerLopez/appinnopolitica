@@ -46,7 +46,7 @@ export default class EventsListScreen extends React.Component {
   };
 
   renderNewsList = ({ item }) => (
-    <TouchableHighlight underlayColor='rgba(73,182,77,0.0)' onPress={() => this.onPressEvent(item)}>
+    <TouchableHighlight style={styles.newlistItemTouchable} underlayColor='rgba(73,182,77,0.0)' onPress={() => this.onPressEvent(item)}>
       <View style={styles.newlistItemContainer}>
         <View style={styles.newlistIcon}>
           <Text style={styles.newlistFecha}>{item.dia}</Text>

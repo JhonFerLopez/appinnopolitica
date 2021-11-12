@@ -1,4 +1,6 @@
-import { ImageBackground, StyleSheet } from 'react-native';
+import { ImageBackground, StyleSheet, Dimensions } from 'react-native';
+const { width, height } = Dimensions.get('window');
+const MARGIN = 10;
 
 const styles = StyleSheet.create({
   newsItemContainer: {
@@ -48,7 +50,7 @@ const styles = StyleSheet.create({
     color: '#19265D',
   },
   newsButton: {
-    width: 370,
+    width: width - (MARGIN*2),
     height: 80,
     borderWidth: 3,
     borderColor: '#342274',
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
     elevation: 1,
   },
   viewButton: {
-    width: '100%',
+    width: width,
     height: 84,
     paddingTop: 4,
     alignItems: 'center',

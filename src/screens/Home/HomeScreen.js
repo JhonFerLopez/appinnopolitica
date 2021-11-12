@@ -75,7 +75,7 @@ export default class HomeScreen extends React.Component {
     <TouchableHighlight underlayColor='rgba(73,182,77,0.0)' onPress={() => this.onPressSubContent(item)}>
       <View style={styles.subContentItemContainer}>
         <View style={styles.ContainerSubPhoto}>
-          <Image style={styles.subPhoto} source={{ uri: item.icon }} />
+          <Image style={styles.subPhoto} source={{ uri: item.icon }} resizeMode='contain'/>
         </View>
         <Text style={styles.subTitle}>{item.name}</Text>
       </View>

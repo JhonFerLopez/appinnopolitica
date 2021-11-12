@@ -50,7 +50,7 @@ export default class CoursesListScreen extends React.Component {
   renderCoursesList = ({ item }) => (
     <TouchableHighlight underlayColor='rgba(73,182,77,0.0)' onPress={() => this.onPressCourses(item)}>
       <View style={styles.courseslistItemContainer}>
-        <Image style={styles.courseslistPhoto} source={{ uri: item.img }} />
+        <Image style={styles.courseslistPhoto} source={{ uri: item.img }} resizeMode='contain' />
         <Text style={styles.courseslistName}>{item.name}</Text>
         <Text style={styles.courseslistFecha}>Fecha: {item.fecha_inicio}</Text>
       </View>

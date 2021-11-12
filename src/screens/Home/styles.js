@@ -10,26 +10,31 @@ const recipeNumColums = 2;
 const RECIPE_ITEM_HEIGHT = 150;
 const RECIPE_ITEM_MARGIN = 20;
 
+const MARGIN = 15;
+const ALTO_IMAGEN = 120;
+const ANCHO_IMAGEN = 370;
+const NEW_ANCHO_IMAGEN = width - (MARGIN * 2);
+const PHOTO_HEIGHT = (ALTO_IMAGEN * NEW_ANCHO_IMAGEN) / ANCHO_IMAGEN;
+
 const styles = StyleSheet.create({
   contentItemContainer: {
-    width: width ,
+    //width: width ,
     flex: 1,
     marginBottom: 20,
-    marginLeft: 0,
-    marginRight: 0,
-    paddingLeft: 10,
-    paddingRight: 10,
+    marginLeft: MARGIN,
+    marginRight: MARGIN,
     justifyContent: 'center',
     alignItems: 'center',
-    height: 120,
+    height: 'auto',
+    overflow: 'hidden',
+    position: 'relative',
   },
   contentPhoto: {
-    zIndex: 1,
-    width: '100%',
-    height: '100%',
-    borderRadius: 30, 
-    shadowColor: 'blue',
-    elevation: 3,
+    flex: 1,
+    width: NEW_ANCHO_IMAGEN,
+    height: PHOTO_HEIGHT,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   contentName: {
     position: 'absolute',

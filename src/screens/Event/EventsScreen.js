@@ -49,7 +49,7 @@ export default class EventsScreen extends React.Component {
     return (
       <View style={styles.newsItemContainer}>
         <ScrollView style={styles.newsItemContainerOne}>
-          <Image style={styles.newsPhoto} source={{ uri: photo_url }  } />
+          <Image style={styles.newsPhoto} source={{ uri: photo_url }} resizeMode='contain'  />
           <Text style={styles.newsName}>{name}</Text>
           <Text style={styles.newsFecha}>Fecha: {fecha_inicio}</Text> 
           <Text style={styles.newsDescrip}>{descrip}</Text>                 
