@@ -33,19 +33,19 @@ const styles = StyleSheet.create({
     marginTop: 8,
     marginLeft: 15,
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Bold', 
     textAlign: 'left',
     color: '#19265D',
+   
   },
   courseslistFecha: {
     width: '100%',
     marginTop: 2,
     marginLeft: 15,
     fontSize: 19,
-    fontWeight: 'bold',
     textAlign: 'left',
     color: '#9aa0b8',
-    fontFamily: 'Poppins',
+    fontFamily: 'Poppins-Bold', 
   }
 });
 

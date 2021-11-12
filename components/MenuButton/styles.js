@@ -17,9 +17,11 @@ const styles = StyleSheet.create({
     width: 25
   },
   btnText: {
-    fontSize: 16,
+    fontSize: 26,
     marginLeft: 10,
-    marginTop: 2
+    marginTop: 2,
+    color: 'red',
+    fontFamily: 'Poppins-Regular',
   }
 });
 

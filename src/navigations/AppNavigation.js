@@ -183,7 +183,7 @@ export default class AppContainer extends React.Component {
                 >
                   <Image source={iconName} style={ styles.tabImage } 
                     resizeMode="contain"/>
-                  <Text style={{ fontWeight: '500', 
+                  <Text style={{ fontFamily: 'Poppins-Regular', 
                     fontSize: 10, 
                     color: isFocused ? '#FFDF73' : '#19265D',
                     textAlign: 'center',

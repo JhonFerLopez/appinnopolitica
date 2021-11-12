@@ -2,6 +2,7 @@ import { ImageBackground, StyleSheet, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 const MARGIN = 10;
+
 const styles = StyleSheet.create({
   coursesItemContainer: {
     flex: 1,
@@ -33,10 +34,9 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginLeft: 15,
     fontSize: 19,
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Bold', 
     textAlign: 'left',
-    color: '#9aa0b8',
-    fontFamily: 'Poppins',
+    color: '#9aa0b8',    
   },
   coursesDescrip: {
     width: '97%',
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     textAlign: 'justify',
     color: '#19265D',
+    fontFamily: 'Poppins-Regular',
   },
   coursesButton: {
     width: width - (MARGIN*2),
@@ -68,7 +69,6 @@ const styles = StyleSheet.create({
   },
   coursesButtonTitle: {
     fontSize: 22,
-    fontWeight: '800',
     textAlign: 'justify',
     color: '#19265D',
     position: 'absolute',
@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
     left: 100,
     zIndex: 1,
     elevation: 1,
+    fontFamily: 'Poppins-Bold',
   },
   viewButton: {
     width: width,

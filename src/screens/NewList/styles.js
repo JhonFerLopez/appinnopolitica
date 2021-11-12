@@ -32,10 +32,11 @@ const styles = StyleSheet.create({
     width: '74%',
     marginLeft: 80,
     fontSize: 18,
-    fontWeight: '600',
     textAlign: 'left',
     justifyContent: 'center',
     color: '#19265D',
+    fontWeight: '400',
+    fontFamily: 'Poppins-Bold', 
   },
   newlistFecha: {
     width: '100%',

@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     marginTop: 13,
     marginLeft: 15, 
     fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily: 'Poppins-Bold', 
     textAlign: 'left',
     color: '#19265D',
   },
@@ -32,10 +32,9 @@ const styles = StyleSheet.create({
     marginTop: 6,
     marginLeft: 15,
     fontSize: 19,
-    fontWeight: 'bold',
     textAlign: 'left',
     color: '#9aa0b8',
-    fontFamily: 'Poppins',
+    fontFamily: 'Poppins-Bold', 
   },
   newsDescrip: {
     width: '97%',
@@ -45,9 +44,9 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     fontSize: 16,
-    fontWeight: 'normal',
     textAlign: 'justify',
     color: '#19265D',
+    fontFamily: 'Poppins-Regular', 
   },
   newsButton: {
     width: width - (MARGIN*2),
@@ -67,7 +66,6 @@ const styles = StyleSheet.create({
   },
   newsButtonTitle: {
     fontSize: 22,
-    fontWeight: '800',
     textAlign: 'justify',
     color: '#19265D',
     position: 'absolute',
@@ -75,6 +73,7 @@ const styles = StyleSheet.create({
     left: 100,
     zIndex: 1,
     elevation: 1,
+    fontFamily: 'Poppins-Bold', 
   },
   viewButton: {
     width: width,
