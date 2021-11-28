@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   subTitle: {
     width: '100%',
     flex: 1,
-    fontSize: 20,
+    fontSize: 17,
     fontFamily: 'Poppins-Bold',
     textAlign: 'left',
     color: '#19265D',
