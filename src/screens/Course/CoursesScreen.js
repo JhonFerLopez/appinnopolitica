@@ -20,7 +20,7 @@ export default class CoursesScreen extends React.Component {
       headerTransparent: 'true',
       headerLeft: () => <BackButton
         onPress={() => {
-          navigation.goBack();
+          navigation.goBack();    
         }}
       />
     };
